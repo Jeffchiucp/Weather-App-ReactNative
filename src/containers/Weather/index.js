@@ -5,6 +5,17 @@ import GoogleMap from '@/components/googlemaps'
 
 class WeatherList extends Component {
     renderWeather(cityData) {
+
+      console.log("---------------------");
+      console.log(cityData)
+      if (!cityData) {
+        return <div>no data</div>
+      } else if (cityData.cod > 300) {
+        return <div>no data</div>
+      }
+      else {
+      console.log("---------------------");
+
         const tempWeather = weather => {
             return weather.main.temp;
         }
@@ -36,6 +47,8 @@ class WeatherList extends Component {
                 </tr>
 
             )
+          }
+
         }
     render() {
         return(
@@ -57,7 +70,6 @@ class WeatherList extends Component {
         )
     }
 }
-
 function mapStateToProps(state) {
     console.log(state)
     return {
