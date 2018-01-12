@@ -7,7 +7,7 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { 
+        this.state = {
             term: ''
         };
 
@@ -24,10 +24,10 @@ class SearchBar extends Component {
     onFormSubmit(event) {
         event.preventDefault();
         this.props.fetchWeather(this.state.term);
-        this.setState({ 
-            term: "" 
+        this.setState({
+            term: ""
         });
-        
+
     }
     render() {
         return (
@@ -38,17 +38,17 @@ class SearchBar extends Component {
                     </div>
                     <div className="col-lg-6">
                         <form onSubmit= {this.onFormSubmit} className="input-group">
-                                <input 
-                                    className="form-control" 
-                                    type="text" 
-                                    placeholder="Get a five day forecast of your favorite city." 
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Get a five day forecast of your favorite city."
                                     aria-label="Get a five day forecast of your favorite city."
                                     onChange= { this.onInputChange }
                                     value = { this.state.term}
                                     />
                                 <span className="input-group-btn">
-                                <button 
-                                    className="input-group btn btn-primary search-btn" 
+                                <button
+                                    className="input-group btn btn-primary search-btn"
                                     type="submit">
                                     Search!
                                 </button>
@@ -61,7 +61,6 @@ class SearchBar extends Component {
         )
     }
 }
-
 function mapDispatchToProps(dispatch) {
 
     return bindActionCreators({fetchWeather}, dispatch);
